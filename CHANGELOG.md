@@ -2,6 +2,185 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.22.0](https://github.com/denolehov/obsidian-git/compare/2.21.0...2.22.0) (2023-08-30)
+
+
+### Features
+
+* highlight opened diff view file ([5708c63](https://github.com/denolehov/obsidian-git/commit/5708c63ad7cad72c3939a4d554a5b98bc04783ed)), closes [#545](https://github.com/denolehov/obsidian-git/issues/545)
+
+
+### Bug Fixes
+
+* ui alignment ([a9adfff](https://github.com/denolehov/obsidian-git/commit/a9adfff996d570f8e893a2e2786059d0fa2e1cb9))
+
+## [2.21.0](https://github.com/denolehov/obsidian-git/compare/2.20.7...2.21.0) (2023-08-22)
+
+
+### Features
+
+* add fetch command ([222245b](https://github.com/denolehov/obsidian-git/commit/222245b7c750bd4d2740aa25913d74d538e5035d))
+* mark push button when push is ready ([32936eb](https://github.com/denolehov/obsidian-git/commit/32936eb76dff45c2333660791faa0bc8f86e1154)), closes [#557](https://github.com/denolehov/obsidian-git/issues/557)
+
+
+### Bug Fixes
+
+* clarify backup after file change setting ([30d12ca](https://github.com/denolehov/obsidian-git/commit/30d12ca872c523cc3d6ee2987c2299270f50a578)), closes [#575](https://github.com/denolehov/obsidian-git/issues/575)
+* show file name in diff view on mobile ([20e0aba](https://github.com/denolehov/obsidian-git/commit/20e0aba46fa3454f8dabc60dd9d3c579efc322ee)), closes [#564](https://github.com/denolehov/obsidian-git/issues/564)
+
+### [2.20.7](https://github.com/denolehov/obsidian-git/compare/2.20.6...2.20.7) (2023-07-31)
+
+
+### Bug Fixes
+
+* properly collapse icon in tree views ([919d7f8](https://github.com/denolehov/obsidian-git/commit/919d7f8f65174e76a4f13a992b3f37931eaf7262))
+* refresh status bar after push ([ed31df8](https://github.com/denolehov/obsidian-git/commit/ed31df88effc5e686cb2e81e0379df93627bdd9b)), closes [#566](https://github.com/denolehov/obsidian-git/issues/566)
+
+### [2.20.6](https://github.com/denolehov/obsidian-git/compare/2.20.5...2.20.6) (2023-07-16)
+
+
+### Bug Fixes
+
+* allow empty commit in history view ([2571473](https://github.com/denolehov/obsidian-git/commit/257147311cf65a2b5dedf957f4c71ad9624ce7be))
+
+### [2.20.5](https://github.com/denolehov/obsidian-git/compare/2.20.4...2.20.5) (2023-06-29)
+
+
+### Bug Fixes
+
+* disallow clone in vault root on desktop ([c073d19](https://github.com/denolehov/obsidian-git/commit/c073d19283c01af4fdc79002d1913b1d5672a5fd)), closes [#540](https://github.com/denolehov/obsidian-git/issues/540)
+* textarea for commit message in settings ([ea4a7a1](https://github.com/denolehov/obsidian-git/commit/ea4a7a105a8a954e705b372dac127fa3a83fddc1))
+
+### [2.20.4](https://github.com/denolehov/obsidian-git/compare/2.20.3...2.20.4) (2023-06-21)
+
+
+### Bug Fixes
+
+* make  `{{files}}` variable visible in settings ([#536](https://github.com/denolehov/obsidian-git/issues/536)) ([07abcce](https://github.com/denolehov/obsidian-git/commit/07abcce878a66e686e7f0221c68df746f69b590b))
+* missing git file status 113 ([#537](https://github.com/denolehov/obsidian-git/issues/537)) ([ba2b40c](https://github.com/denolehov/obsidian-git/commit/ba2b40cbc5687f92ab9ca6a65110d5d6ec39c2ca))
+
+### [2.20.3](https://github.com/denolehov/obsidian-git/compare/2.20.2...2.20.3) (2023-06-04)
+
+
+### Bug Fixes
+
+* show correct empty diff ([c8bbe7c](https://github.com/denolehov/obsidian-git/commit/c8bbe7c5d2b7beb49ab5fa55922f289c2bcdbed1)), closes [#327](https://github.com/denolehov/obsidian-git/issues/327)
+
+### [2.20.2](https://github.com/denolehov/obsidian-git/compare/2.20.1...2.20.2) (2023-06-02)
+
+
+### Bug Fixes
+
+* hide line authoring settings on mobile ([c135c0b](https://github.com/denolehov/obsidian-git/commit/c135c0b49cd0cc8033ea40f64e6f922702375aa0))
+* properly resolve merge conflict ([80c0b65](https://github.com/denolehov/obsidian-git/commit/80c0b65f8d0d8dc8dbddff61118bd79733ffce94)), closes [#502](https://github.com/denolehov/obsidian-git/issues/502)
+
+### [2.20.1](https://github.com/denolehov/obsidian-git/compare/2.20.0...2.20.1) (2023-05-31)
+
+
+### Bug Fixes
+
+* use queue for actions in source control view ([eb20dd4](https://github.com/denolehov/obsidian-git/commit/eb20dd4c93cb6013e9aef1e47f817586261507d5)), closes [#517](https://github.com/denolehov/obsidian-git/issues/517)
+
+## [2.20.0](https://github.com/denolehov/obsidian-git/compare/2.19.1...2.20.0) (2023-05-17)
+
+
+### Features
+
+* Line Authoring ([aa8dd1b](https://github.com/denolehov/obsidian-git/commit/aa8dd1b3cf0fc440c4d7177831795f3fc5b0076c)), closes [#321](https://github.com/denolehov/obsidian-git/issues/321)
+
+
+### Bug Fixes
+
+* use proper tree structure on Obsidian 1.3.1 ([c124943](https://github.com/denolehov/obsidian-git/commit/c124943d5f1ba388f700524e517a43cf9682abc8)), closes [#512](https://github.com/denolehov/obsidian-git/issues/512)
+
+### [2.19.1](https://github.com/denolehov/obsidian-git/compare/2.19.0...2.19.1) (2023-04-04)
+
+
+### Bug Fixes
+
+* handle missing tracking branch ([#483](https://github.com/denolehov/obsidian-git/issues/483)) ([703fc18](https://github.com/denolehov/obsidian-git/commit/703fc18e7dccec89c810e6529a869ec5c271c21e))
+
+## [2.19.0](https://github.com/denolehov/obsidian-git/compare/2.18.0...2.19.0) (2023-03-22)
+
+
+### Features
+* new History view
+* show last commit time in status bar ([b6d93a1](https://github.com/denolehov/obsidian-git/commit/b6d93a1b8574b1d9dc56c3be9bf8403d95fcef26)), closes [#334](https://github.com/denolehov/obsidian-git/issues/334)
+
+
+### Bug Fixes
+
+* catch error in diffView ([cbff377](https://github.com/denolehov/obsidian-git/commit/cbff37701fd8aa8b9e1257d09fb8ca9fb655b35b))
+* catch huge auto intervals ([35bca00](https://github.com/denolehov/obsidian-git/commit/35bca003c98637f65295fe7d5a8bc4ae1fd68b07)), closes [#153](https://github.com/denolehov/obsidian-git/issues/153)
+
+## [2.18.0](https://github.com/denolehov/obsidian-git/compare/2.17.4...2.18.0) (2023-03-20)
+
+
+### Features
+
+* add setting to hide file menu actions ([a59d38a](https://github.com/denolehov/obsidian-git/commit/a59d38a9f00042a1c27dc64426cd93e595f8eb6b)), closes [#456](https://github.com/denolehov/obsidian-git/issues/456)
+* show last commit time in status bar ([4525fef](https://github.com/denolehov/obsidian-git/commit/4525fef302c23b54c233186bdbf898615fc1b314)), closes [#334](https://github.com/denolehov/obsidian-git/issues/334)
+
+
+### Bug Fixes
+
+* catch huge auto intervals ([b96efc5](https://github.com/denolehov/obsidian-git/commit/b96efc5e06654f144d5837e784da297d79496c51)), closes [#153](https://github.com/denolehov/obsidian-git/issues/153)
+* minor source control view improvements ([fd7792c](https://github.com/denolehov/obsidian-git/commit/fd7792c80403d884d09c31bb09a76799bbd0dff0))
+* typo in settings ([4014057](https://github.com/denolehov/obsidian-git/commit/4014057879d24cb176a2ee1baac868fab05bc856)), closes [#468](https://github.com/denolehov/obsidian-git/issues/468)
+
+### [2.17.4](https://github.com/denolehov/obsidian-git/compare/2.17.3...2.17.4) (2023-03-07)
+
+
+### Bug Fixes
+
+* add additional author check ([58ce847](https://github.com/denolehov/obsidian-git/commit/58ce84749936c78a2789f3eae1e2de3877350b96))
+
+### [2.17.3](https://github.com/denolehov/obsidian-git/compare/2.17.2...2.17.3) (2023-03-07)
+
+
+### Bug Fixes
+
+* better error message for missing author ([2e9e3b1](https://github.com/denolehov/obsidian-git/commit/2e9e3b135de411f764ba6eef5b0aaf4d21216b55))
+* don't checkout when nothing changed after merge ([f807d8a](https://github.com/denolehov/obsidian-git/commit/f807d8a19712bc8f697e37ba1a571b47be77c064))
+* show diff with custom base path ([fdde0bf](https://github.com/denolehov/obsidian-git/commit/fdde0bf83b4fedf430fe829724992207f1393d48))
+* use correct git path on clone on mobile ([686c323](https://github.com/denolehov/obsidian-git/commit/686c3230daff6a7fa1d51cf9270295ad975e2599))
+
+### [2.17.2](https://github.com/denolehov/obsidian-git/compare/2.17.1...2.17.2) (2023-03-06)
+
+
+### Bug Fixes
+
+* use correct git dir on mobile ([fd456e5](https://github.com/denolehov/obsidian-git/commit/fd456e5f505ba1bedc0ab85fdc62ee9aa91c18e5))
+
+### [2.17.1](https://github.com/denolehov/obsidian-git/compare/2.17.0...2.17.1) (2023-03-05)
+
+
+### Bug Fixes
+
+* show missing repo message ([70a6464](https://github.com/denolehov/obsidian-git/commit/70a64640f3b21fe61bbdaf0b6215d2878df732be))
+
+## [2.17.0](https://github.com/denolehov/obsidian-git/compare/2.16.0...2.17.0) (2023-02-25)
+
+
+### Features
+
+* include old file name in log ([fa34fb5](https://github.com/denolehov/obsidian-git/commit/fa34fb5c87c9d9d6b294ef3fe28f5c7538df21ac))
+* specify depth on clone ([cf81f0c](https://github.com/denolehov/obsidian-git/commit/cf81f0c1ea72931b2274265e32ab4db2d11d0c82)), closes [#307](https://github.com/denolehov/obsidian-git/issues/307)
+
+
+### Bug Fixes
+
+* correct git dir for clone on mobile ([0b06487](https://github.com/denolehov/obsidian-git/commit/0b0648716f790e2676509b77dee444a72ef06814))
+* handle github link errors ([#445](https://github.com/denolehov/obsidian-git/issues/445)) ([fd294cc](https://github.com/denolehov/obsidian-git/commit/fd294ccf50237c24000559d0d99cff4758e43b1a))
+
+## [2.16.0](https://github.com/denolehov/obsidian-git/compare/2.15.0...2.16.0) (2023-01-16)
+
+
+### Features
+
+* additional environment variables ([f9b1bca](https://github.com/denolehov/obsidian-git/commit/f9b1bca38c6db23f05abfb211933f7ce4f69db7f)), closes [#414](https://github.com/denolehov/obsidian-git/issues/414)
+* custom GIT_DIR ([978453e](https://github.com/denolehov/obsidian-git/commit/978453ebb1cf0df1c70bd169665709cd512264dd))
+
 ## [2.15.0](https://github.com/denolehov/obsidian-git/compare/2.14.0...2.15.0) (2023-01-06)
 
 

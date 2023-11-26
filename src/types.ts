@@ -1,3 +1,5 @@
+import { LineAuthorSettings } from "src/lineAuthor/model";
+
 export interface ObsidianGitSettings {
     commitMessage: string;
     autoCommitMessage: string;
@@ -13,10 +15,10 @@ export interface ObsidianGitSettings {
     listChangedFilesInMessageBody: boolean;
     showStatusBar: boolean;
     updateSubmodules: boolean;
-	submoduleRecurseCheckout: boolean;
-	/**
-    * @deprecated Using `localstorage` instead
-    */
+    submoduleRecurseCheckout: boolean;
+    /**
+     * @deprecated Using `localstorage` instead
+     */
     gitPath?: string;
     customMessageOnAutoBackup: boolean;
     autoBackupAfterFileChange: boolean;
@@ -37,10 +39,24 @@ export interface ObsidianGitSettings {
     showedMobileNotice: boolean;
     refreshSourceControlTimer: number;
     showBranchStatusBar: boolean;
+    lineAuthor: LineAuthorSettings;
     setLastSaveToLastCommit: boolean;
+    gitDir: string;
+    showFileMenu: boolean;
 }
 
-export type SyncMethod = 'rebase' | 'merge' | 'reset';
+/**
+ * Ensures, that nested values objects are correctly merged.
+ */
+export function mergeSettingsByPriority(
+    low: Omit<ObsidianGitSettings, "autoCommitMessage">,
+    high: ObsidianGitSettings
+): ObsidianGitSettings {
+    const lineAuthor = Object.assign({}, low.lineAuthor, high.lineAuthor);
+    return Object.assign({}, low, high, { lineAuthor });
+}
+
+export type SyncMethod = "rebase" | "merge" | "reset";
 
 export interface Author {
     name: string;
@@ -53,6 +69,63 @@ export interface Status {
     conflicted: string[];
 }
 
+export interface GitTimestamp {
+    /**
+     * The number of unix seconds since epoch time (UTC).
+     */
+    epochSeconds: number;
+    /**
+     * The time zone, in which the commit was originally created.
+     * This can be used to reconstruct the local time during creating time.
+     */
+    tz: string;
+}
+
+export interface UserEmail {
+    name: string;
+    email: string;
+}
+
+export interface BlameCommit {
+    hash: string;
+    author?: UserEmail & GitTimestamp;
+    committer?: UserEmail & GitTimestamp;
+    previous?: { commitHash?: string; filename: string };
+    filename?: string;
+    summary: string;
+    isZeroCommit: boolean; // true, if hash is 000...000
+}
+
+/**
+ * See https://git-scm.com/docs/git-blame#_the_porcelain_format
+ */
+export interface Blame {
+    commits: Map<string, BlameCommit>;
+    /**
+     * hashPerLine[i] is the commit hash where line i originates from
+     *
+     * The first element is always `undefined`, since line-numbers are 1-based.
+     */
+    hashPerLine: string[];
+    /**
+     * originalFileLineNrPerLine[i] contains the original files' line number from where line i
+     *
+     * The first element is always `undefined`, since line-numbers are 1-based.originated
+     */
+    originalFileLineNrPerLine: number[];
+    /**
+     * finalFileLineNrPerLine[i] contains the final files' line number from where line i originated
+     *
+     * The first element is always `undefined`, since line-numbers are 1-based.
+     */
+    finalFileLineNrPerLine: number[];
+    /**
+     * For each line i, which originates from a different commit than it's previous line,
+     * groupSizePerStartingLine[i] contains the number of lines until either the next
+     * group of lines or EOF is reached.
+     */
+    groupSizePerStartingLine: Map<number, number>;
+}
 
 /**
  * `index` and `working_dir` are each one-character codes, based off the git
@@ -111,10 +184,6 @@ export interface FileStatusResult {
     // if no merge conflicts, otherwise represents status of other side of a merge.
     working_dir: string;
 }
-export interface DiffResult {
-    path: string;
-    type: "equal" | "modify" | "add" | "remove";
-}
 
 export enum PluginState {
     idle,
@@ -126,9 +195,31 @@ export enum PluginState {
     conflicted,
 }
 
+export interface LogEntry {
+    hash: string;
+    date: string;
+    message: string;
+    refs: string[];
+    body: string;
+    diff: DiffEntry;
+}
+
+export interface DiffEntry {
+    changed: number;
+    files: DiffFile[];
+}
+
+export interface DiffFile {
+    path: string;
+    vault_path: string;
+    hash: string;
+    status: string;
+    binary: boolean;
+}
+
 export interface WalkDifference {
     path: string;
-    type: | "modify" | "add" | "remove";
+    type: "M" | "A" | "D";
 }
 
 export interface UnstagedFile {
@@ -142,19 +233,24 @@ export interface BranchInfo {
     branches: string[];
 }
 
-export interface TreeItem {
+export interface TreeItem<T = DiffFile | FileStatusResult> {
     title: string;
     path: string;
     vaultPath: string;
-    statusResult?: FileStatusResult;
-    children?: TreeItem[];
+    data?: T;
+    children?: TreeItem<T>[];
 }
 
-export type RootTreeItem = TreeItem & { children: TreeItem[]; };
+export type RootTreeItem<T> = TreeItem<T> & { children: TreeItem<T>[] };
+
+export type StatusRootTreeItem = RootTreeItem<FileStatusResult>;
+
+export type HistoryRootTreeItem = RootTreeItem<DiffFile>;
 
 export interface DiffViewState {
-    staged: boolean,
-    file: string,
+    staged: boolean;
+    file: string;
+    hash?: string;
 }
 
 export enum FileType {
@@ -167,5 +263,8 @@ declare module "obsidian" {
     interface App {
         loadLocalStorage(key: string): string | null;
         saveLocalStorage(key: string, value: string | undefined): void;
+    }
+    interface View {
+        titleEl: HTMLElement;
     }
 }

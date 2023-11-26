@@ -4,7 +4,6 @@
 
 # npm
 node_modules
-package-lock.json
 main.js
 yarn.lock
 
@@ -16,3 +15,5 @@ yarn.lock
 /data.json
 
 .vscode
+
+.DS_Store
